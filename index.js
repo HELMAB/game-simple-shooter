@@ -6,7 +6,7 @@ canvas.height = innerHeight
 canvas.width = innerWidth
 
 const friction = 0.95
-let score = 0;
+let score = 0
 
 
 class Player {
@@ -125,6 +125,8 @@ function animate() {
     projectTiles.forEach((projectTile) => {
       const dist = Math.hypot(projectTile.x - enemy.x, projectTile.y - enemy.y)
       if (dist - enemy.radius - projectTile.radius < 1) {
+        const audio = new Audio('./sounds/explosion.mp3')
+        audio.play()
         score++
         document.getElementById('score').innerText = score
 
